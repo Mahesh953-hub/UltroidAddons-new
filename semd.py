@@ -64,8 +64,8 @@ async def semd_plugin(ult):
         f"© <a href='{repo}'>Team Ultroid</a>"
     )
     
-    # Fetch custom thumbnail from cdB
-    custom_thumbnail = cdB.get_key("CUSTOM_THUMBNAIL")
+    # Fetch custom thumbnail from udB
+    custom_thumbnail = udB.get_key("CUSTOM_THUMBNAIL")
     if custom_thumbnail.startswith("http"):
         # If it's a URL, download the image
         download_path = "downloaded_thumbnail.jpg"  # Temporary local file path

@@ -7,16 +7,16 @@ from openai import OpenAI
 # Created by @cat_me_if_you_can2
 
 conversation_history = {}
-prompt = cdB.get_key("HOT_PROMPT")
-url = cdB.get_key("API_GPT")
+prompt = udB.get_key("HOT_PROMPT")
+url = udB.get_key("API_GPT")
 
 async def get_chatbot_response(message, user_id):
-    api = cdB.get_key("API_GPT_KEY")
+    api = udB.get_key("API_GPT_KEY")
     if not api:
         print("OpenAI API key not found!")
         return
     """
-    url = cdB.get_key("API_GPT")
+    url = udB.get_key("API_GPT")
     url = "https://api.openai.com/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -72,11 +72,11 @@ async def chatbot_replies_two(e):
         except Exception as er:
             LOGS.exception(er)
 
-    key = cdB.get_key("CHATBOT_USERS") or {}
+    key = udB.get_key("CHATBOT_USERS") or {}
     if e.text and key.get(e.chat_id) and sender.id in key[e.chat_id]:
         msg = await get_chatbot_response(e.message.message, e.sender_id)
         if msg:
-            sleep = cdB.get_key("CHATBOT_SLEEP") or 1.5
+            sleep = udB.get_key("CHATBOT_SLEEP") or 1.5
             await asyncio.sleep(sleep)
             await e.reply(msg)
 

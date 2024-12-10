@@ -1,5 +1,5 @@
 import requests
-from pyUltroid import cdB
+from pyUltroid import udB
 from . import  ultroid_cmd, eor
 from . import run_async
 import os
@@ -8,9 +8,9 @@ from . import ultroid_cmd, fast_download, check_filename
 from io import BytesIO
 
 
-CFAC = cdB.get_key("CFAC")
-CFKEY = cdB.get_key("CFKEY")
-CFM  = cdB.get_key("CFM")
+CFAC = udB.get_key("CFAC")
+CFKEY = udB.get_key("CFKEY")
+CFM  = udB.get_key("CFM")
 API_BASE_URL = f"https://api.cloudflare.com/client/v4/accounts/{CFAC}/ai/run/"
 headers = {"Authorization": f"Bearer {CFKEY}"}
 
@@ -46,7 +46,7 @@ async def generate_code(event):
                     system("pip install -q openai")
                     import openai
 
-                from . import ultroid_cmd, check_filename, cdB, LOGS, fast_download, run_async
+                from . import ultroid_cmd, check_filename, udB, LOGS, fast_download, run_async
 
                 @run_async
                 def get_gpt_answer(gen_image, question, api_key):
@@ -68,7 +68,7 @@ async def generate_code(event):
 
                 @ultroid_cmd(pattern="(chat)?gpt( (.*)|$)")
                 async def openai_chat_gpt(e):
-                    api_key = cdB.get_key("OPENAI_API")
+                    api_key = udB.get_key("OPENAI_API")
                     gen_image = False
                     if not api_key:
                         return await e.eor("OPENAI_API key missing..")

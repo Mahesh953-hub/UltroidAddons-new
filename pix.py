@@ -7,7 +7,7 @@
 import requests
 from . import ultroid_cmd
 
-API_KEY = cdB.get_key("PIX_API")
+API_KEY = udB.get_key("PIX_API")
 @ultroid_cmd(pattern="pix ?(.*)")
 async def pix_img(event):
     if event.reply_to_msg_id:

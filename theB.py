@@ -1,11 +1,11 @@
 import requests
-from pyUltroid import cdB
+from pyUltroid import udB
 from . import  ultroid_cmd, eor
 from . import run_async
 
-CFAC = cdB.get_key("CFAC")
-MIS_KEY = cdB.get_key("MIS_KEY")
-CF_LLM  = cdB.get_key("CF_LLM")
+CFAC = udB.get_key("CFAC")
+MIS_KEY = udB.get_key("MIS_KEY")
+CF_LLM  = udB.get_key("CF_LLM")
 API_BASE_URL = f"https://api.cloudflare.com/client/v4/accounts/{CFAC}/ai/run/"
 headers = {"Authorization": f"Bearer {MIS_KEY}"}
 

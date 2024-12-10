@@ -129,7 +129,7 @@ async def search_code(event, code_query):
         
         headers = {
             "Accept": "application/vnd.github+json",
-            "Authorization": f"Bearer {cdB.get_key('GIT_AUTH_TOKEN')}",
+            "Authorization": f"Bearer {udB.get_key('GIT_AUTH_TOKEN')}",
             "X-GitHub-Api-Version": "2022-11-28"
         }
         
